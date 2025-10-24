@@ -1,4 +1,4 @@
-## Moon Company Organizational Chart
+# Moon Company Organizational Chart
 
 ### Overview
 Interactive organizational chart with multiple view modes and filtering capabilities.

@@ -6,7 +6,8 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Moon Company Organizational Chart\n\n- Complete interactive organizational chart with 280+ employees\n- 24 departments across 4 senior managers\n- 3-tier hierarchy visualization (Senior/Mid/Junior)\n- Three view modes: Senior Management, Department View, Full Hierarchy\n- Scrollable department lists for large teams\n- Responsive design with custom styling\n- Interactive modals and filtering\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(gh:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []

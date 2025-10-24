@@ -1,0 +1,641 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #667eea;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* View Toggle Controls */
+.view-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.view-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #f0f3ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.view-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.view-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* View Containers */
+.org-chart-view {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.org-chart-view.active {
+    display: block;
+}
+
+/* Senior Management View */
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.level {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.level-top {
+    margin-bottom: 20px;
+}
+
+.level-senior {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.connector-line.vertical {
+    width: 3px;
+    height: 40px;
+    background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+/* Employee Cards */
+.employee-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.employee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.employee-card.founder {
+    border-color: #e74c3c;
+    background: linear-gradient(135deg, #fff 0%, #ffe6e6 100%);
+}
+
+.employee-card.senior-manager {
+    border-color: #3498db;
+    background: linear-gradient(135deg, #fff 0%, #e6f2ff 100%);
+}
+
+/* Avatar Styles */
+.avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-placeholder {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+/* Text Styles */
+.employee-card h3 {
+    font-size: 1.3em;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.employee-card .title {
+    color: #7f8c8d;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.employee-card .departments {
+    color: #95a5a6;
+    font-size: 0.85em;
+    font-style: italic;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* Senior Manager Section */
+.senior-manager-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.dept-count {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* Department View */
+.department-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.dept-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.dept-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dept-card[data-manager="Namita"] {
+    border-left-color: #3498db;
+}
+
+.dept-card[data-manager="Radhika"] {
+    border-left-color: #e74c3c;
+}
+
+.dept-card[data-manager="Gyan"] {
+    border-left-color: #2ecc71;
+}
+
+.dept-card[data-manager="Bhavin"] {
+    border-left-color: #f39c12;
+}
+
+.dept-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.dept-header h3 {
+    color: #2c3e50;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.manager-badge {
+    display: inline-block;
+    background: #f8f9fa;
+    color: #7f8c8d;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.dept-members {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Scrollbar styling for department members */
+.dept-members::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dept-members::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.dept-members::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.dept-members::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.member-item {
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #555;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+}
+
+.member-item:hover {
+    background: #e9ecef;
+    transform: translateX(3px);
+}
+
+/* Hierarchy with Designations */
+.member-item.hierarchy-senior,
+.member-item.hierarchy-mid,
+.member-item.hierarchy-junior {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 15px;
+}
+
+.member-item.hierarchy-senior {
+    background: linear-gradient(135deg, #e8f4f8 0%, #d4e9f2 100%);
+    border-left: 4px solid #3498db;
+}
+
+.member-item.hierarchy-mid {
+    background: linear-gradient(135deg, #f8fcff 0%, #eaf5fb 100%);
+    border-left: 4px solid #5dade2;
+    margin-left: 10px;
+}
+
+.member-item.hierarchy-junior {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid #95c5de;
+    margin-left: 20px;
+}
+
+.member-item strong {
+    color: #2c3e50;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.member-item .designation {
+    color: #7f8c8d;
+    font-size: 0.85em;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Filter Controls */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #ddd;
+    background: white;
+    color: #555;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.filter-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* Full Hierarchy View */
+.full-hierarchy-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hierarchy-level {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.level-title {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.employee-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.employee-card-small {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 180px;
+    transition: all 0.3s ease;
+}
+
+.employee-card-small:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.employee-card-small.founder {
+    border: 2px solid #e74c3c;
+}
+
+.employee-card-small.senior {
+    border: 2px solid #3498db;
+}
+
+.employee-card-small strong {
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.employee-card-small span {
+    color: #7f8c8d;
+    font-size: 0.85em;
+}
+
+.hierarchy-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #667eea, transparent);
+    margin: 20px 0;
+}
+
+.senior-management-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.division-block {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sub-departments {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mini-dept {
+    background: #f0f3ff;
+    color: #667eea;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: 500;
+    border: 1px solid #667eea;
+    transition: all 0.2s ease;
+}
+
+.mini-dept:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Statistics Footer */
+footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #ecf0f1;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stat-item:hover .stat-number,
+.stat-item:hover .stat-label {
+    color: white;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.dept-card {
+    animation: slideIn 0.4s ease forwards;
+}
+
+.dept-card:nth-child(1) { animation-delay: 0.05s; }
+.dept-card:nth-child(2) { animation-delay: 0.1s; }
+.dept-card:nth-child(3) { animation-delay: 0.15s; }
+.dept-card:nth-child(4) { animation-delay: 0.2s; }
+.dept-card:nth-child(5) { animation-delay: 0.25s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .view-controls {
+        flex-direction: column;
+    }
+
+    .view-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .level-senior {
+        grid-template-columns: 1fr;
+    }
+
+    .department-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .senior-management-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+        padding: 20px;
+    }
+
+    .view-controls,
+    .filter-controls {
+        display: none;
+    }
+
+    .org-chart-view {
+        display: block !important;
+    }
+}
+
+/* Hidden state for filtered items */
+.dept-card.hidden {
+    display: none;
+}

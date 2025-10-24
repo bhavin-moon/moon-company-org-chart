@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Input Helper - Moon Company</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .instructions li {
+            margin: 8px 0;
+        }
+
+        .manager-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px solid #ddd;
+        }
+
+        .manager-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .department-input {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .department-input h3 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        label {
+            display: block;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.95em;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .example {
+            background: #e8f4f8;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .output-section {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #2ecc71;
+        }
+
+        .output-section.show {
+            display: block;
+        }
+
+        .output-section h2 {
+            color: #2ecc71;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .copy-btn {
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .copy-btn:hover {
+            background: #27ae60;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-box .number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Data Input Helper</h1>
+        <p class="subtitle">Enter employee data from your spreadsheet to generate the org chart</p>
+
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Look at your spreadsheet and find employees for each department</li>
+                <li>Enter each employee name on a new line in the textarea below</li>
+                <li>Click "Generate Code" when done</li>
+                <li>Copy the generated code and paste it into the index.html file</li>
+            </ol>
+        </div>
+
+        <div class="stats" id="stats">
+            <div class="stat-box">
+                <div class="number" id="totalEmployees">0</div>
+                <div class="label">Total Employees</div>
+            </div>
+            <div class="stat-box">
+                <div class="number" id="totalDepts">0</div>
+                <div class="label">Departments</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">4</div>
+                <div class="label">Senior Managers</div>
+            </div>
+        </div>
+
+        <!-- Namita's Departments -->
+        <div class="manager-section">
+            <h2>Namita - Senior Manager</h2>
+
+            <div class="department-input">
+                <h3>Tax and Accounts Payable</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-tax" data-manager="Namita" data-dept="Tax and Accounts Payable" placeholder="Enter employee names, one per line"></textarea>
+                <div class="example">Example: Mansi Padhiar<br>Manisha Mishra</div>
+            </div>
+
+            <div class="department-input">
+                <h3>Banking</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-banking" data-manager="Namita" data-dept="Banking"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Accounts</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-accounts" data-manager="Namita" data-dept="Accounts"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>DSPF</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-dspf" data-manager="Namita" data-dept="DSPF"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>DTAP</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-dtap" data-manager="Namita" data-dept="DTAP"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Admin</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-admin" data-manager="Namita" data-dept="Admin"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>HR</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-hr" data-manager="Namita" data-dept="HR"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Accounts Receivable</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-ar" data-manager="Namita" data-dept="Accounts Receivable"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>GST</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-gst" data-manager="Namita" data-dept="GST"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>KPO</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-kpo" data-manager="Namita" data-dept="KPO"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>MPR/QPR/HPR/IEC/RCMC</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-namita-mpr" data-manager="Namita" data-dept="MPR/QPR/HPR/IEC/RCMC"></textarea>
+            </div>
+        </div>
+
+        <!-- Radhika's Departments -->
+        <div class="manager-section">
+            <h2>Radhika - Senior Manager</h2>
+
+            <div class="department-input">
+                <h3>Approval</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-radhika-approval" data-manager="Radhika" data-dept="Approval"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>ROC</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-radhika-roc" data-manager="Radhika" data-dept="ROC"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Billing</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-radhika-billing" data-manager="Radhika" data-dept="Billing"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Contract</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-radhika-contract" data-manager="Radhika" data-dept="Contract"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Quotation</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-radhika-quotation" data-manager="Radhika" data-dept="Quotation"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Marketing - Business Development</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-radhika-marketing" data-manager="Radhika" data-dept="Marketing - Business Development"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Cultural Program Moon</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-radhika-cultural" data-manager="Radhika" data-dept="Cultural Program Moon"></textarea>
+            </div>
+        </div>
+
+        <!-- Gyan's Departments -->
+        <div class="manager-section">
+            <h2>Gyan - Senior Manager</h2>
+
+            <div class="department-input">
+                <h3>BOE</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-gyan-boe" data-manager="Gyan" data-dept="BOE"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Removal</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-gyan-removal" data-manager="Gyan" data-dept="Removal"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Customs</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-gyan-customs" data-manager="Gyan" data-dept="Customs"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Softex and Export</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-gyan-softex" data-manager="Gyan" data-dept="Softex and Export"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Exit</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-gyan-exit" data-manager="Gyan" data-dept="Exit"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Monitoring</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-gyan-monitoring" data-manager="Gyan" data-dept="Monitoring"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>APR</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-gyan-apr" data-manager="Gyan" data-dept="APR"></textarea>
+            </div>
+        </div>
+
+        <!-- Bhavin's Departments -->
+        <div class="manager-section">
+            <h2>Bhavin - Senior Manager</h2>
+
+            <div class="department-input">
+                <h3>Software</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-bhavin-software" data-manager="Bhavin" data-dept="Software"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>Digital Marketing</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-bhavin-digital" data-manager="Bhavin" data-dept="Digital Marketing"></textarea>
+            </div>
+
+            <div class="department-input">
+                <h3>IT Hardware</h3>
+                <label>Employee Names (one per line):</label>
+                <textarea id="dept-bhavin-it" data-manager="Bhavin" data-dept="IT Hardware"></textarea>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" onclick="generateCode()">Generate Code</button>
+            <button class="btn-secondary" onclick="updateStats()">Update Statistics</button>
+        </div>
+
+        <div class="output-section" id="outputSection">
+            <h2>Generated HTML Code</h2>
+            <p style="color: #555; margin-bottom: 15px;">Copy this code and replace the department sections in index.html</p>
+            <div class="code-block" id="codeOutput"></div>
+            <button class="copy-btn" onclick="copyCode()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        // Update statistics in real-time
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', updateStats);
+        });
+
+        function updateStats() {
+            let totalEmployees = 3; // Directors
+            let deptCount = 0;
+
+            document.querySelectorAll('textarea').forEach(textarea => {
+                const value = textarea.value.trim();
+                if (value) {
+                    const lines = value.split('\n').filter(line => line.trim());
+                    totalEmployees += lines.length;
+                    if (lines.length > 0) deptCount++;
+                }
+            });
+
+            totalEmployees += 4; // Senior managers
+
+            document.getElementById('totalEmployees').textContent = totalEmployees;
+            document.getElementById('totalDepts').textContent = deptCount;
+        }
+
+        function generateCode() {
+            let htmlCode = '';
+            const textareas = document.querySelectorAll('textarea');
+
+            textareas.forEach(textarea => {
+                const manager = textarea.dataset.manager;
+                const dept = textarea.dataset.dept;
+                const employees = textarea.value.trim().split('\n').filter(line => line.trim());
+
+                if (employees.length > 0) {
+                    htmlCode += `
+                <div class="dept-card" data-manager="${manager}">
+                    <div class="dept-header">
+                        <h3>${dept}</h3>
+                        <span class="manager-badge">Manager: ${manager}</span>
+                    </div>
+                    <div class="dept-members">\n`;
+
+                    employees.forEach(emp => {
+                        htmlCode += `                        <div class="member-item">${emp.trim()}</div>\n`;
+                    });
+
+                    htmlCode += `                    </div>
+                </div>\n`;
+                }
+            });
+
+            document.getElementById('codeOutput').textContent = htmlCode;
+            document.getElementById('outputSection').classList.add('show');
+            document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyCode() {
+            const codeOutput = document.getElementById('codeOutput').textContent;
+            navigator.clipboard.writeText(codeOutput).then(() => {
+                alert('Code copied to clipboard! Now paste it into index.html');
+            });
+        }
+
+        // Initialize stats
+        updateStats();
+    </script>
+</body>
+</html>

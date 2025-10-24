@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizational Chart - Moon Company</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Moon Company Organizational Chart</h1>
+            <p class="subtitle">Interactive Hierarchy Visualization</p>
+
+            <!-- View Toggle Controls -->
+            <div class="view-controls">
+                <button class="view-btn active" data-view="senior-management">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Senior Management
+                </button>
+                <button class="view-btn" data-view="department-view">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Department View
+                </button>
+                <button class="view-btn" data-view="full-hierarchy">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    Full Hierarchy
+                </button>
+            </div>
+        </header>
+
+        <!-- Senior Management View -->
+        <div class="org-chart-view active" id="senior-management">
+            <div class="org-chart">
+                <!-- Top Level Leadership -->
+                <div class="level level-top">
+                    <div class="employee-card founder">
+                        <div class="avatar">
+                            <div class="avatar-placeholder">DM</div>
+                        </div>
+                        <h3>Durga Moondra</h3>
+                        <p class="title">Founder & Director</p>
+                    </div>
+                    <div class="employee-card founder">
+                        <div class="avatar">
+                            <div class="avatar-placeholder">RM</div>
+                        </div>
+                        <h3>Ratan Moondra</h3>
+                        <p class="title">Co-Founder & Director</p>
+                    </div>
+                    <div class="employee-card founder">
+                        <div class="avatar">
+                            <div class="avatar-placeholder">AJ</div>
+                        </div>
+                        <h3>Ashish Jhagarawat</h3>
+                        <p class="title">Director</p>
+                    </div>
+                </div>
+
+                <div class="connector-line vertical"></div>
+
+                <!-- Senior Management Team -->
+                <div class="level level-senior">
+                    <div class="senior-manager-section">
+                        <div class="employee-card senior-manager">
+                            <div class="avatar">
+                                <div class="avatar-placeholder">NM</div>
+                            </div>
+                            <h3>Namita</h3>
+                            <p class="title">Senior Manager</p>
+                            <p class="departments">Finance, Accounts, HR, Admin, GST</p>
+                        </div>
+                        <div class="dept-count">12 Departments</div>
+                    </div>
+
+                    <div class="senior-manager-section">
+                        <div class="employee-card senior-manager">
+                            <div class="avatar">
+                                <div class="avatar-placeholder">RM</div>
+                            </div>
+                            <h3>Radhika</h3>
+                            <p class="title">Senior Manager</p>
+                            <p class="departments">ROC, Billing, Contracts, Marketing</p>
+                        </div>
+                        <div class="dept-count">6 Departments</div>
+                    </div>
+
+                    <div class="senior-manager-section">
+                        <div class="employee-card senior-manager">
+                            <div class="avatar">
+                                <div class="avatar-placeholder">GM</div>
+                            </div>
+                            <h3>Gyan</h3>
+                            <p class="title">Senior Manager</p>
+                            <p class="departments">BOE, Customs, Export, Monitoring</p>
+                        </div>
+                        <div class="dept-count">7 Departments</div>
+                    </div>
+
+                    <div class="senior-manager-section">
+                        <div class="employee-card senior-manager">
+                            <div class="avatar">
+                                <div class="avatar-placeholder">BV</div>
+                            </div>
+                            <h3>Bhavin</h3>
+                            <p class="title">Senior Manager</p>
+                            <p class="departments">Software, Digital Marketing, IT</p>
+                        </div>
+                        <div class="dept-count">3 Departments</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department View -->
+        <div class="org-chart-view" id="department-view">
+            <div class="department-grid">
+                <!-- Namita's Departments -->
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>Tax and Accounts Payable</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Manager Mishra</div>
+                        <div class="member-item">Manager Mishra</div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>Banking</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Vaishali</div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>Accounts (Finance and Accounts)</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Vaishali Shrikant Kapure</strong>
+                            <span class="designation">Executive Accounts [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Avinashkumar Akhilesh Mishra</strong>
+                            <span class="designation">Senior Accountant [SA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Swati Namanand Shivane</strong>
+                            <span class="designation">Executive Accounts [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pradnya Gautam Shelar</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Neha Vitthal Updeshe</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Ashwini Sumit Jambhale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Pranvi Prakash Kapadi</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Kirti Malhari Bhalerao</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Vaishnavi Govind Chafekarande</strong>
+                            <span class="designation">Executive Accounts [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Devrath Limbraj Gawande</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Prarthana Mohanlal Malviya</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>DSPF</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Ashwini Somnath Vibhute</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pooja Kalidas Gangaware</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Mitali Ashok Bhalerge</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Arti Gokul Gajbhar</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Pallavi Somnath Gaikwad</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Gayatri Kishor Chaudhari</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Prajakta Anil Kare</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Sandesh Shahaji Gadekar</strong>
+                            <span class="designation">Assistant Executive [AE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mrs. Komal Kunal Talekar</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sakshi Vikas Mane</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Anupam Kamala Kant Tiwari</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Vaibhav Baban Sabale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Akash Rajendrakumar Devkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pallavi Prakash Ghatolkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Yogita Harichandra More</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Avishkar Vijay Desai</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Tanvi Santosh Bharade</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pooja Damu Jedage</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Sarita Dhanaji Ghatage</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Seema Yogesh Jadhav</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Rahul Namdev Gaikwad</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pournima Ashok Sakat</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Snehalata Gautam Ghorpade</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Ms. Vaibhav Namdev Mahadik</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Ms. Divya Goraksh Khutal</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Nisha Anandrao Bhosale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Rohit Deepak Dorkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Arti Sidhalingappa Kore</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Aruna Pandharinath Yamgar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Archana Santosh Kokare</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Varsha Rajendra Dhekale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pooja Piraji Yadav</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Tejasvini Mitesh Shimpi</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Bhagyashree Vishnu Bhosale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Anjali Chandrakant Karande</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Someshwari Santosh Tambe</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Ashok Vishnu Salve</strong>
+                            <span class="designation">Assistant Executive [AE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Ms. Sanika Vijay Ghorpade</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Jayshree Shantaram Wadekar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Premal Malhari Gherade</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>DTAP</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Sagar Dattatray Jadhav</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Rushikesh Suresh Patil</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Atman Mohmmadumer Maner</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Diksha Anandrao Kamble</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Shivani Devidas Ghadsing</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Vivek Dhanraj Sonawane</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Chaitali Vardhman Chougule</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Namrata Baban Dhekale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Swati Sudhakar Kale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Neha Bharat Sutar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Mohini Bharat Bhosale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Shraddha Vitthal Bankar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>Admin</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Dinkar Sonawane</strong>
+                            <span class="designation">Driver [D]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Ms. Gauri Vaibhav Yadav</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Ms. Anita Shamkaram Sonawane</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Gautam Sudam Kamble</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>HR</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Akshaya Ashok Kamble</strong>
+                            <span class="designation">Executive HR [EHR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Dipali Sandeep Mali</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Jayashri Avinash More</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Rajashri Rajendra Birajadar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>Accounts Receivable</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Pradnya Shelar</div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>GST</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Shivani Shrikant Gade</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Dhanashree Ravindra Borole</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Pornima Tukaram Gaikwad</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Dipika Anil Katte</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Ganesh Balaso Pasalkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Prasad Suresh Dhawane</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>KAM (Key Account Management)</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mrs. Megha Yogesh Kamatkar</strong>
+                            <span class="designation">Key Account Manager [KAM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mrs. Snehal Vitthal Koli</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Arati Anandrao Bhosale</strong>
+                            <span class="designation">Executive Assistant - KAM [EAK]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Hema Janakraj Nathani</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Anushka Rajendra Shinde</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sapna Navnath Shelke</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Dipti Starappa Patil</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Amruta Madhukar Shinde</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>KPO (Knowledge Process Outsourcing)</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Deepak Bhagwan Pawar</strong>
+                            <span class="designation">Deputy Manager [DM]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Preeti Dattatray Khavare</strong>
+                            <span class="designation">Deputy Manager [DM]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Swati Shirish Naik</strong>
+                            <span class="designation">Deputy Manager [DM]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Pallavi Ramdas Shelar</strong>
+                            <span class="designation">Senior SEZ Executive [Sr. SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Sanjay Ramji Pawar</strong>
+                            <span class="designation">Senior SEZ Executive [Sr. SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Nilam Suresh Yadav</strong>
+                            <span class="designation">Senior SEZ Executive [Sr. SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Vaishali Subhash Sutar</strong>
+                            <span class="designation">Senior SEZ Executive [Sr. SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Nutan Sanjay Salunkhe</strong>
+                            <span class="designation">Senior SEZ Executive [Sr. SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mrs. Sumitra Manoj Sharma</strong>
+                            <span class="designation">Senior Process Manager [Sr. PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Ashvini Damodar Manjrekar</strong>
+                            <span class="designation">Senior SEZ Executive [Sr. SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priyanka Rajendra Patil</strong>
+                            <span class="designation">Assistant Manager [AM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Tejashri Prakash Suryawanshi</strong>
+                            <span class="designation">Assistant Manager [AM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Manisha Machhindra Khot</strong>
+                            <span class="designation">Assistant Manager [AM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sneha Sagar Sawant</strong>
+                            <span class="designation">Assistant Manager [AM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Dnyaneshwar Suresh Palaskar</strong>
+                            <span class="designation">Branch Head [BH]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Dhanlaxmi Balkrishna Panchal</strong>
+                            <span class="designation">Branch Head [BH]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Tejal Devendra Govekar</strong>
+                            <span class="designation">Branch Head [BH]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Swati Atmaram Sawant</strong>
+                            <span class="designation">Branch Head [BH]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Shilpa Sanjay Vaingankar</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Kanchan Ramesh Mahajan</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pranjali Vishwas Padwal</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Siddhi Sanjay Chavan</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Asmita Pradip Naik</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sameera Yunus Shaikh</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Tejaswini Dilip Sawant</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pooja Dattatray Koli</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pallavi Sudhir Khot</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Kajal Bhaskar More</strong>
+                            <span class="designation">Process Manager [PM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mrs. Pratiksha Swapnil Dalvi</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Shivani Bhagwan Lokhande</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Manjusha Sudhir Koli</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mrs. Chhaya Sanjay Raut</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priti Manoj Rana</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Kalpana Dattatray Gaikwad</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Revati Nanda Patil</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Vaishnavi Pramod Kamble</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Rekha Dattatray Gaikwad</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Mansi Ramesh Rane</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Swapnali Raju Jadhav</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Shruti Dattatray Sawant</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pallavi Pandharinath Chavan</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Snehal Pramod Naik</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Archana Rajan Patil</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pooja Balakrishna Sawant</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sneha Sudhir Dalvi</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Rutuja Ramesh Gawde</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priyanka Pandharinath Kamble</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Jyoti Vijay Patil</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Soni Sachin Bhoir</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Savita Rajendra More</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Komal Milind Salunkhe</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Saniya Suresh Shaikh</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Samruddhi Avinash Pawar</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Nikita Sunil Koli</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Akshata Vijay Wagh</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Aarti Kishor Patil</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sapna Yashwant Naik</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Bhavika Rajesh Sawant</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Anjali Sanjay Gaikwad</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Dhanashri Raghunath Kamble</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priyanka Pandurang Pawar</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Shweta Balaji Bhoir</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Poonam Ravindra Shinde</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Rani Pandurang Jadhav</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Seema Vitthal More</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Nisha Baban Koli</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Varsha Prakash Gaikwad</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Rupali Sanjay Kamble</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Tejashree Sudhir Patil</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Ankita Ramesh Sawant</strong>
+                            <span class="designation">SEZ Executive [SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Shalini Santosh Pawar</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Dipali Vijay Naik</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Gauri Suresh Bhoir</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Madhuri Prakash Kamble</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Vidya Ramesh Gaikwad</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Kavita Dattatray Sawant</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Sunita Balu Patil</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Renuka Vishwas Jadhav</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Manisha Anil More</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Tanuja Sudhir Koli</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Neelam Prakash Shinde</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Aishwarya Vitthal Bhoir</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Sujata Balaji Gawde</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pranali Santosh Kamble</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Prerna Rajendra Pawar</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Jyoti Bhaskar Sawant</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Manali Suresh Naik</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Sayali Vijay Patil</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Shital Ramesh Jadhav</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Yogita Prakash More</strong>
+                            <span class="designation">Trainee SEZ Executive [T-SEZE]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Namita">
+                    <div class="dept-header">
+                        <h3>MPR/QPR/HPR/IEC/RCMC (Export Promotion)</h3>
+                        <span class="manager-badge">Manager: Namita</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Akshata Anil Sawant</strong>
+                            <span class="designation">Senior Executive - Export Promotion [Sr. EEP]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priyanka Ramesh Shinde</strong>
+                            <span class="designation">Executive - Export Promotion [EEP]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sneha Prakash Patil</strong>
+                            <span class="designation">Executive - Export Promotion [EEP]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pooja Suresh Kamble</strong>
+                            <span class="designation">Trainee - Export Promotion [T-EP]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Manisha Vijay Jadhav</strong>
+                            <span class="designation">Trainee - Export Promotion [T-EP]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Radhika's Departments -->
+                <div class="dept-card" data-manager="Radhika">
+                    <div class="dept-header">
+                        <h3>Approval</h3>
+                        <span class="manager-badge">Manager: Radhika</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Shraddha Eknath Deokar</strong>
+                            <span class="designation">Senior Compliance Officer [SCO]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Sonal Abdhesh Agarwal</strong>
+                            <span class="designation">Senior Compliance Officer [SCO]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priyanka Anand Baswante</strong>
+                            <span class="designation">Compliance Executive [CE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Ankita Appaso Wagh</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Kanyashwari Tukaram Satre</strong>
+                            <span class="designation">SEZ Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Aman Anil Pandit</strong>
+                            <span class="designation">Compliance Manager [CM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Neha Ramesh Bhalgat</strong>
+                            <span class="designation">Compliance Officer [CO]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Vidya Tukaram Mahadik</strong>
+                            <span class="designation">Compliance Executive [CE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mrs. Lalita Shrimant Mane</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Nikita Govind Garte</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sonam Purushottam Bhattad</strong>
+                            <span class="designation">Assistant Compliance Executive [ACE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mrs. Sonal Laxmidas Samant</strong>
+                            <span class="designation">Consultant [CLT]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Radha Shashank Bele</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priya Manishkumar Parikh</strong>
+                            <span class="designation">Legal Executive-IFSC [LMI]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Sakshi Dnyaneshwar Shinde</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Vaishnavi Dattatray Shinde</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Swara Arvind Rai</strong>
+                            <span class="designation">Legal Executive [LE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Sameedha Sanjay Khollam</strong>
+                            <span class="designation">Compliance Executive [CE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Anirudh Ramavtar Singh</strong>
+                            <span class="designation">Compliance Officer-IFSC [COF]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Radhika">
+                    <div class="dept-header">
+                        <h3>ROC</h3>
+                        <span class="manager-badge">Manager: Radhika</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Team Members</div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Radhika">
+                    <div class="dept-header">
+                        <h3>Billing</h3>
+                        <span class="manager-badge">Manager: Radhika</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pratiksha Arun Ambavade</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Jyoti Sampat Salunkhe</strong>
+                            <span class="designation">Assistant Executive [AE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Jyoti Kumar Thage</strong>
+                            <span class="designation">SEZ Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Prajkta Hiramanik Nirmal</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Pratik Balaso Bhise</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Rasika Jitendra Pimpalgonkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Shashwati Manohar Tonpe</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Komal Rajkumar Misal</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Seema Ajay Madane</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Radhika">
+                    <div class="dept-header">
+                        <h3>Contract</h3>
+                        <span class="manager-badge">Manager: Radhika</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pratiksha Arun Ambavade</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Jyoti Sampat Salunkhe</strong>
+                            <span class="designation">Assistant Executive [AE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Jyoti Kumar Thage</strong>
+                            <span class="designation">SEZ Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Prajkta Hiramanik Nirmal</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Pratik Balaso Bhise</strong>
+                            <span class="designation">Executive Assistant [EA]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Rasika Jitendra Pimpalgonkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Shashwati Manohar Tonpe</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Komal Rajkumar Misal</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Seema Ajay Madane</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Radhika">
+                    <div class="dept-header">
+                        <h3>Quotation</h3>
+                        <span class="manager-badge">Manager: Radhika</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Team Members</div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Radhika">
+                    <div class="dept-header">
+                        <h3>Marketing - Business Development</h3>
+                        <span class="manager-badge">Manager: Radhika</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Kajal Parshuram Kumbhar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pratiksha Pravin Ronge</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Radhika">
+                    <div class="dept-header">
+                        <h3>Cultural Program Moon</h3>
+                        <span class="manager-badge">Manager: Radhika</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Team Members</div>
+                    </div>
+                </div>
+
+                <!-- Gyan's Departments -->
+                <div class="dept-card" data-manager="Gyan">
+                    <div class="dept-header">
+                        <h3>BOE</h3>
+                        <span class="manager-badge">Manager: Gyan</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Vivek Ramdas Wadekar</strong>
+                            <span class="designation">Senior EXIM Executive [SEE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Ms. Dipali Gopal Dayama</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Prashant Rajaram Mohite</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Vishal Vishwanath Kale</strong>
+                            <span class="designation">SEZ Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Ms. Tejal Uttam Bhosale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Avinash Vilas Bhosale</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Aditya Khanderao Mane</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Aniket Radhakisan Arote</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Vaishnavi Vijay Kshirsagar</strong>
+                            <span class="designation">Exim Executive [EE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Priyanka Dhananjay Sakhare</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Reshma Ramdas Pujari</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Sujata Vishnu Pagar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Akshay Dattaram Jadhav</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Gyan">
+                    <div class="dept-header">
+                        <h3>Removal (Goods Movement)</h3>
+                        <span class="manager-badge">Manager: Gyan</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Rajesh Kumar Sharma</strong>
+                            <span class="designation">Senior Manager - Removal [Sr. RM]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Vijay Prakash Patil</strong>
+                            <span class="designation">Assistant Manager - Removal [AM-R]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priyanka Suresh Naik</strong>
+                            <span class="designation">Removal Executive [RE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Santosh Ramesh Sawant</strong>
+                            <span class="designation">Removal Executive [RE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Neha Dattatray Kamble</strong>
+                            <span class="designation">Removal Executive [RE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Anil Bhagwan Bhoir</strong>
+                            <span class="designation">Removal Executive [RE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Pooja Vitthal Jadhav</strong>
+                            <span class="designation">Removal Executive [RE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Shalini Prakash Shinde</strong>
+                            <span class="designation">Trainee - Removal [T-R]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Rahul Sudhir Pawar</strong>
+                            <span class="designation">Trainee - Removal [T-R]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Snehal Rajesh Gaikwad</strong>
+                            <span class="designation">Trainee - Removal [T-R]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Gyan">
+                    <div class="dept-header">
+                        <h3>Customs (Export-Reexport)</h3>
+                        <span class="manager-badge">Manager: Gyan</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Omkar Mahadev Wagh</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Yogita Nivas Patil</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Chinmay Moreshwar Deshpande</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Gyan">
+                    <div class="dept-header">
+                        <h3>Softex and Export (Software Export)</h3>
+                        <span class="manager-badge">Manager: Gyan</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Mahesh Ramesh Patil</strong>
+                            <span class="designation">Deputy Manager - Softex [DM-SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Miss Kavita Suresh Naik</strong>
+                            <span class="designation">Senior Executive - Softex [Sr. SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Swati Prakash Sawant</strong>
+                            <span class="designation">Assistant Manager - Softex [AM-SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Suresh Dattatray Kamble</strong>
+                            <span class="designation">Softex Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Priya Vijay Bhoir</strong>
+                            <span class="designation">Softex Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Anjali Ramesh Jadhav</strong>
+                            <span class="designation">Softex Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Amit Bhaskar Shinde</strong>
+                            <span class="designation">Softex Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Nikita Sudhir Pawar</strong>
+                            <span class="designation">Softex Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Rupali Anil Gaikwad</strong>
+                            <span class="designation">Softex Executive [SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Pooja Prakash Koli</strong>
+                            <span class="designation">Trainee - Softex [T-SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Rohit Santosh Sawant</strong>
+                            <span class="designation">Trainee - Softex [T-SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Sakshi Rajesh Patil</strong>
+                            <span class="designation">Trainee - Softex [T-SE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Manisha Suresh Naik</strong>
+                            <span class="designation">Trainee - Softex [T-SE]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Gyan">
+                    <div class="dept-header">
+                        <h3>Exit</h3>
+                        <span class="manager-badge">Manager: Gyan</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Team Members</div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Gyan">
+                    <div class="dept-header">
+                        <h3>Monitoring</h3>
+                        <span class="manager-badge">Manager: Gyan</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Team Members</div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Gyan">
+                    <div class="dept-header">
+                        <h3>APR</h3>
+                        <span class="manager-badge">Manager: Gyan</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Sanket Sanjay Suryawanshi</strong>
+                            <span class="designation">Senior EXIM Executive [SEE]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Vaishnavi Vilas Wadaskar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bhavin's Departments -->
+                <div class="dept-card" data-manager="Bhavin">
+                    <div class="dept-header">
+                        <h3>Software (Information Technology)</h3>
+                        <span class="manager-badge">Manager: Bhavin</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Ganesh Bapu Holkar</strong>
+                            <span class="designation">Senior Manager - Software Developer [Sr. SD]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Rahul Ashok Mahindrakar</strong>
+                            <span class="designation">Consultant [CLT]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Sahadeo Ghogare</strong>
+                            <span class="designation">Deputy Manager - Test Engineer [DMTE]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Rahul Raju Dongare</strong>
+                            <span class="designation">Sr. IT Network Engineer [SITNE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Neha Dilip Mahajan</strong>
+                            <span class="designation">Jr.PHP. Developer [JPD]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Arati Tanaji Nimbalkar</strong>
+                            <span class="designation">Jr.Test Engineer [JE]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Miss Utkarsha Pramod Veer</strong>
+                            <span class="designation">Jr.PHP. Developer [JPD]</span>
+                        </div>
+                        <div class="member-item hierarchy-senior">
+                            <strong>Mr. Rushikesh Madhavrao Tantre</strong>
+                            <span class="designation">Sr. PHP. Developer [SPD]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Aditya Gangadhar Kalkote</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Shubham Subhash Jogi</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Mayur Ravindra Bhadave</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Saurav Shashikant Palkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Sanket Anil Wathekar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mr. Akshay Kishanla Rathi</strong>
+                            <span class="designation">General Manager [GM]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Trilochan Ashok Patil</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Koyal Anant Dervankar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Bhavin">
+                    <div class="dept-header">
+                        <h3>Digital Marketing</h3>
+                        <span class="manager-badge">Manager: Bhavin</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item hierarchy-mid">
+                            <strong>Mrs. Neha Veersingh Kushwah</strong>
+                            <span class="designation">Executive Design [ED]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Mr. Ashish Sanjeev Bendre</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                        <div class="member-item hierarchy-junior">
+                            <strong>Miss Snehal Manohar Gaurkar</strong>
+                            <span class="designation">Trainee [TR]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-manager="Bhavin">
+                    <div class="dept-header">
+                        <h3>IT Hardware</h3>
+                        <span class="manager-badge">Manager: Bhavin</span>
+                    </div>
+                    <div class="dept-members">
+                        <div class="member-item">Team Members</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Buttons for Department View -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Departments</button>
+                <button class="filter-btn" data-filter="Namita">Namita's Departments</button>
+                <button class="filter-btn" data-filter="Radhika">Radhika's Departments</button>
+                <button class="filter-btn" data-filter="Gyan">Gyan's Departments</button>
+                <button class="filter-btn" data-filter="Bhavin">Bhavin's Departments</button>
+            </div>
+        </div>
+
+        <!-- Full Hierarchy View -->
+        <div class="org-chart-view" id="full-hierarchy">
+            <div class="full-hierarchy-container">
+                <!-- Top Leadership -->
+                <div class="hierarchy-level">
+                    <h2 class="level-title">Board of Directors</h2>
+                    <div class="employee-row">
+                        <div class="employee-card-small founder">
+                            <strong>Durga Moondra</strong>
+                            <span>Founder & Director</span>
+                        </div>
+                        <div class="employee-card-small founder">
+                            <strong>Ratan Moondra</strong>
+                            <span>Co-Founder & Director</span>
+                        </div>
+                        <div class="employee-card-small founder">
+                            <strong>Ashish Jhagarawat</strong>
+                            <span>Director</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hierarchy-divider"></div>
+
+                <!-- Senior Management -->
+                <div class="hierarchy-level">
+                    <h2 class="level-title">Senior Management</h2>
+                    <div class="senior-management-grid">
+                        <!-- Namita's Division -->
+                        <div class="division-block">
+                            <div class="employee-card-small senior">
+                                <strong>Namita</strong>
+                                <span>Senior Manager</span>
+                            </div>
+                            <div class="sub-departments">
+                                <div class="mini-dept">Tax & AP</div>
+                                <div class="mini-dept">Banking</div>
+                                <div class="mini-dept" data-dept="accounts" onclick="showDepartmentDetails('Accounts (Finance and Accounts)', 'Namita')">
+                                    Accounts (11)
+                                </div>
+                                <div class="mini-dept" data-dept="dspf" onclick="showDepartmentDetails('DSPF', 'Namita')">
+                                    DSPF (42)
+                                </div>
+                                <div class="mini-dept" data-dept="dtap" onclick="showDepartmentDetails('DTAP', 'Namita')">
+                                    DTAP (12)
+                                </div>
+                                <div class="mini-dept" data-dept="admin" onclick="showDepartmentDetails('Admin', 'Namita')">
+                                    Admin (4)
+                                </div>
+                                <div class="mini-dept" data-dept="hr" onclick="showDepartmentDetails('HR', 'Namita')">
+                                    HR (4)
+                                </div>
+                                <div class="mini-dept">AR</div>
+                                <div class="mini-dept" data-dept="gst" onclick="showDepartmentDetails('GST', 'Namita')">
+                                    GST (6)
+                                </div>
+                                <div class="mini-dept" data-dept="kam" onclick="showDepartmentDetails('KAM (Key Account Management)', 'Namita')">
+                                    KAM (8)
+                                </div>
+                                <div class="mini-dept" data-dept="kpo" onclick="showDepartmentDetails('KPO (Knowledge Process Outsourcing)', 'Namita')">
+                                    KPO (94)
+                                </div>
+                                <div class="mini-dept" data-dept="mpr" onclick="showDepartmentDetails('MPR/QPR/HPR/IEC/RCMC (Export Promotion)', 'Namita')">
+                                    MPR/QPR (5)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Radhika's Division -->
+                        <div class="division-block">
+                            <div class="employee-card-small senior">
+                                <strong>Radhika</strong>
+                                <span>Senior Manager</span>
+                            </div>
+                            <div class="sub-departments">
+                                <div class="mini-dept" data-dept="approval" onclick="showDepartmentDetails('Approval', 'Radhika')">
+                                    Approval (19)
+                                </div>
+                                <div class="mini-dept">ROC</div>
+                                <div class="mini-dept" data-dept="billing" onclick="showDepartmentDetails('Billing', 'Radhika')">
+                                    Billing (9)
+                                </div>
+                                <div class="mini-dept" data-dept="contract" onclick="showDepartmentDetails('Contract', 'Radhika')">
+                                    Contract (9)
+                                </div>
+                                <div class="mini-dept">Quotation</div>
+                                <div class="mini-dept" data-dept="marketing" onclick="showDepartmentDetails('Marketing - Business Development', 'Radhika')">
+                                    Marketing (2)
+                                </div>
+                                <div class="mini-dept">Cultural</div>
+                            </div>
+                        </div>
+
+                        <!-- Gyan's Division -->
+                        <div class="division-block">
+                            <div class="employee-card-small senior">
+                                <strong>Gyan</strong>
+                                <span>Senior Manager</span>
+                            </div>
+                            <div class="sub-departments">
+                                <div class="mini-dept" data-dept="boe" onclick="showDepartmentDetails('BOE', 'Gyan')">
+                                    BOE (13)
+                                </div>
+                                <div class="mini-dept" data-dept="removal" onclick="showDepartmentDetails('Removal (Goods Movement)', 'Gyan')">
+                                    Removal (10)
+                                </div>
+                                <div class="mini-dept" data-dept="customs" onclick="showDepartmentDetails('Customs (Export-Reexport)', 'Gyan')">
+                                    Customs (3)
+                                </div>
+                                <div class="mini-dept" data-dept="softex" onclick="showDepartmentDetails('Softex and Export (Software Export)', 'Gyan')">
+                                    Softex (13)
+                                </div>
+                                <div class="mini-dept">Exit</div>
+                                <div class="mini-dept">Monitoring</div>
+                                <div class="mini-dept" data-dept="apr" onclick="showDepartmentDetails('APR', 'Gyan')">
+                                    APR (2)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bhavin's Division -->
+                        <div class="division-block">
+                            <div class="employee-card-small senior">
+                                <strong>Bhavin</strong>
+                                <span>Senior Manager</span>
+                            </div>
+                            <div class="sub-departments">
+                                <div class="mini-dept" data-dept="software" onclick="showDepartmentDetails('Software (Information Technology)', 'Bhavin')">
+                                    Software (17)
+                                </div>
+                                <div class="mini-dept" data-dept="digital-marketing" onclick="showDepartmentDetails('Digital Marketing', 'Bhavin')">
+                                    Digital Marketing (3)
+                                </div>
+                                <div class="mini-dept">IT Hardware</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Footer -->
+        <footer>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Directors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Senior Managers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Departments</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

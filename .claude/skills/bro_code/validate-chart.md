@@ -3,6 +3,7 @@
 Run comprehensive validation checks on the organizational chart.
 
 ## Purpose
+
 Perform systematic validation of data integrity, consistency, and formatting across all views.
 
 ## Validation Checks
@@ -10,11 +11,13 @@ Perform systematic validation of data integrity, consistency, and formatting acr
 ### 1. Count Validation
 
 **Process:**
+
 - For each department in Department View, count all `member-item` elements
 - Find matching badge in Full Hierarchy view
 - Compare counts
 
 **Report format:**
+
 ```
 📊 DEPARTMENT COUNT VALIDATION
 ✅ Admin: 4 employees (matches Full Hierarchy)
@@ -25,11 +28,13 @@ Perform systematic validation of data integrity, consistency, and formatting acr
 ### 2. Hierarchy Class Validation
 
 **Check:**
+
 - All member-items have exactly one hierarchy class
 - Valid classes: `hierarchy-senior`, `hierarchy-mid`, `hierarchy-junior`
 - No missing or invalid classes
 
 **Report format:**
+
 ```
 🎯 HIERARCHY CLASS VALIDATION
 ✅ 280 employees have valid hierarchy classes
@@ -41,11 +46,13 @@ Perform systematic validation of data integrity, consistency, and formatting acr
 ### 3. Manager Assignment Validation
 
 **Check:**
+
 - All dept-cards have `data-manager` attribute
 - Values are: Namita, Radhika, Gyan, or Bhavin (exact spelling)
 - Full Hierarchy onclick handlers reference correct manager
 
 **Report format:**
+
 ```
 👥 MANAGER ASSIGNMENT VALIDATION
 ✅ All 24 departments have valid manager assignments
@@ -57,11 +64,13 @@ Perform systematic validation of data integrity, consistency, and formatting acr
 ### 4. Designation Format Validation
 
 **Check:**
+
 - All employees have `<span class="designation">` element
 - Format: `[Full Title] [Abbreviation]`
 - Abbreviation in square brackets
 
 **Report format:**
+
 ```
 📋 DESIGNATION FORMAT VALIDATION
 ✅ 275 employees have proper designation format
@@ -73,11 +82,13 @@ Perform systematic validation of data integrity, consistency, and formatting acr
 ### 5. Duplicate Detection
 
 **Check:**
+
 - Scan all employee names across all departments
 - Flag potential duplicates (same full name)
 - Consider legitimate duplicates if in different departments
 
 **Report format:**
+
 ```
 🔄 DUPLICATE DETECTION
 ✅ No duplicate employees found
@@ -89,11 +100,13 @@ Perform systematic validation of data integrity, consistency, and formatting acr
 ### 6. Name Format Validation
 
 **Check:**
+
 - Names follow format: `Mr./Miss/Mrs. FirstName [MiddleName] LastName`
 - All names start with title (Mr./Miss/Mrs.)
 - At least 3 words (Title FirstName LastName)
 
 **Report format:**
+
 ```
 📝 NAME FORMAT VALIDATION
 ✅ 278 employees have proper name format
@@ -141,6 +154,7 @@ Recommendation: [Fix critical issues before deployment / All clear for deploymen
 ## Auto-Fix Option
 
 After reporting, ask user:
+
 ```
 Would you like me to automatically fix these issues?
 1. Fix all (recommended)

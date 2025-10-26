@@ -1,0 +1,1 @@
+Synchronize employee counts between Department View and Full Hierarchy view. Count all employees in each department and update the counts displayed in the Full Hierarchy badges. Report which departments were updated.

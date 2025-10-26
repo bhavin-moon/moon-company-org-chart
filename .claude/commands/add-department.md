@@ -1,0 +1,1 @@
+Create a new department in the organizational chart. Ask for department name, manager (Namita/Radhika/Gyan/Bhavin), and employee list. Add the department to Department View, Full Hierarchy view, and update the Senior Management department count.

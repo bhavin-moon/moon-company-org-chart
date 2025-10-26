@@ -1,0 +1,1 @@
+Generate comprehensive statistics about the organizational chart including: total employees, total departments, breakdown by manager, breakdown by hierarchy level (Senior/Mid/Junior), largest/smallest departments, and employee distribution across the organization.

@@ -1,0 +1,1 @@
+Search for an employee by name in the organizational chart. Ask for search term (full or partial name), then scan all departments and display the employee's full details including name, designation, department, manager, and hierarchy level.

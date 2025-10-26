@@ -1,0 +1,1 @@
+Create a backup of the current organizational chart. Copy index.html to a backup file with timestamp (e.g., index.backup.2025-10-26.html), commit the backup to git with appropriate message, and confirm the backup was created successfully.

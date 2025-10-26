@@ -1,0 +1,1 @@
+Add a new employee to the organizational chart. Ask for employee name, designation, department, and hierarchy level (or infer from title). Update both Department View and Full Hierarchy view with the new employee count.

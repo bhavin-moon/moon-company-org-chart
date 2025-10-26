@@ -1,0 +1,1 @@
+Export employee data from the organizational chart in various formats (CSV, JSON, or Markdown). Ask user for preferred format, then extract all employee information from index.html and generate the export file with statistics.

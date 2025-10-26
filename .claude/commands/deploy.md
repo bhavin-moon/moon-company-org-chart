@@ -1,0 +1,1 @@
+Deploy the organizational chart to GitHub Pages. Check for uncommitted changes, stage all files, create a commit with a descriptive message, push to GitHub, and provide the live URL. Verify deployment status after pushing.

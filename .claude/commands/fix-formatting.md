@@ -1,0 +1,1 @@
+Scan the organizational chart for formatting issues and fix them automatically. Issues include: missing designation abbreviations, incorrect hierarchy classes based on job titles, inconsistent name formats, missing hierarchy classes, and whitespace/indentation problems. Provide a report of all fixes applied.

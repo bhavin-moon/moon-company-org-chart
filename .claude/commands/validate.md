@@ -1,0 +1,1 @@
+Run comprehensive validation checks on the organizational chart including: employee count consistency between views, hierarchy class validation, manager assignment validation, designation format validation, and duplicate detection. Provide a detailed report with any issues found.
